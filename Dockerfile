@@ -8,7 +8,7 @@ RUN apk add --update git \
 COPY . $SRC_PATH
 WORKDIR $SRC_PATH
 
-RUN go get -u ./... \
+RUN go get ./... \
 && go build -v \
 && cp $APP_NAME /usr/bin \
 && apk del git \

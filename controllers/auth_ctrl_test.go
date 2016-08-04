@@ -4,9 +4,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"git.wid.la/co-net/auth-server/errs"
-	"git.wid.la/co-net/auth-server/models"
-	"git.wid.la/co-net/auth-server/utils"
+	"github.com/solher/auth-nginx-proxy-companion/errs"
+	"github.com/solher/auth-nginx-proxy-companion/models"
+	"github.com/solher/auth-nginx-proxy-companion/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

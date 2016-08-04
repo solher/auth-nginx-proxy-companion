@@ -3,6 +3,10 @@ package app
 import "time"
 
 type Constants struct {
+	Swagger struct {
+		Location string
+	}
+
 	App struct {
 		Port        int
 		ExitTimeout time.Duration
@@ -11,7 +15,7 @@ type Constants struct {
 
 	Auth struct {
 		RedirectURL string
-		GrantAll bool
+		GrantAll    bool
 	}
 
 	GC struct {

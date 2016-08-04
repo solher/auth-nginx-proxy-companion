@@ -10,8 +10,8 @@ import (
 	"github.com/boltdb/bolt"
 	"github.com/solher/zest"
 
-	"git.wid.la/co-net/auth-server/models"
-	"git.wid.la/co-net/auth-server/utils"
+	"github.com/solher/auth-nginx-proxy-companion/models"
+	"github.com/solher/auth-nginx-proxy-companion/utils"
 )
 
 var testResource = &models.Resource{

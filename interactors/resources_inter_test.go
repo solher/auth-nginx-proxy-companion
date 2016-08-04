@@ -3,8 +3,8 @@ package interactors
 import (
 	"testing"
 
-	"git.wid.la/co-net/auth-server/errs"
-	"git.wid.la/co-net/auth-server/models"
+	"github.com/solher/auth-nginx-proxy-companion/errs"
+	"github.com/solher/auth-nginx-proxy-companion/models"
 	"github.com/boltdb/bolt"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

@@ -1,7 +1,7 @@
 package app
 
 import (
-	"git.wid.la/co-net/auth-server/controllers"
+	"github.com/solher/auth-nginx-proxy-companion/controllers"
 	"github.com/go-zoo/bone"
 	"github.com/solher/zest"
 )

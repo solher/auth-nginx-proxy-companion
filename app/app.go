@@ -4,16 +4,16 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"git.wid.la/co-net/auth-server/infrastructure"
-	"git.wid.la/co-net/auth-server/middlewares"
-	"git.wid.la/co-net/auth-server/models"
-	"git.wid.la/co-net/auth-server/utils"
 	"github.com/boltdb/bolt"
 	"github.com/go-zoo/bone"
+	"github.com/solher/auth-nginx-proxy-companion/infrastructure"
+	"github.com/solher/auth-nginx-proxy-companion/middlewares"
+	"github.com/solher/auth-nginx-proxy-companion/models"
+	"github.com/solher/auth-nginx-proxy-companion/utils"
 	"github.com/solher/zest"
 
-	_ "git.wid.la/co-net/auth-server/interactors"
-	_ "git.wid.la/co-net/auth-server/validators"
+	_ "github.com/solher/auth-nginx-proxy-companion/interactors"
+	_ "github.com/solher/auth-nginx-proxy-companion/validators"
 )
 
 func Run(overrideConst zest.SeqFunc) {
@@ -77,6 +77,8 @@ func PopulateConstants(z *zest.Zest) error {
 		return err
 	}
 
+	d.Const.Swagger.Location = z.Context.GlobalString("swaggerLocation")
+
 	d.Const.App.Port = z.Context.GlobalInt("port")
 	d.Const.App.ExitTimeout = z.Context.GlobalDuration("exitTimeout")
 	d.Const.App.Config = z.Context.GlobalString("config")
@@ -128,7 +130,7 @@ func InitServer(z *zest.Zest) error {
 
 	z.Server.Use(zest.NewRecovery())
 	z.Server.Use(zest.NewLogger())
-	z.Server.Use(middlewares.NewSwagger())
+	z.Server.Use(middlewares.NewSwagger(d.Const.Swagger.Location))
 
 	z.Server.UseHandler(d.Router)
 

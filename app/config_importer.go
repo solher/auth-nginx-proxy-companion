@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"git.wid.la/co-net/auth-server/models"
+	"github.com/solher/auth-nginx-proxy-companion/models"
 	"gopkg.in/yaml.v2"
 )
 

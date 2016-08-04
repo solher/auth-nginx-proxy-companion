@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"net/url"
 
-	"git.wid.la/co-net/auth-server/errs"
-	"git.wid.la/co-net/auth-server/models"
+	"github.com/solher/auth-nginx-proxy-companion/errs"
+	"github.com/solher/auth-nginx-proxy-companion/models"
 
 	"github.com/solher/zest"
 )

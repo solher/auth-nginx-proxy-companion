@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"git.wid.la/co-net/auth-server/errs"
+	"github.com/solher/auth-nginx-proxy-companion/errs"
 	"github.com/boltdb/bolt"
 	"github.com/solher/zest"
 )

@@ -32,6 +32,12 @@ func SetCli(appli *zest.Zest) {
 			EnvVar: "CONFIG",
 		},
 		cli.StringFlag{
+			Name:   "swaggerLocation",
+			Value:  "./swagger.json",
+			Usage:  "swager file location (Default: swagger.json)",
+			EnvVar: "SWAGGER_LOCATION",
+		},
+		cli.StringFlag{
 			Name:   "dbLocation",
 			Value:  "data.db",
 			Usage:  "database location (Default: data.db)",
@@ -51,13 +57,13 @@ func SetCli(appli *zest.Zest) {
 		},
 		cli.DurationFlag{
 			Name:   "gcFreq",
-			Value:  time.Minute,
+			Value:  time.Hour,
 			Usage:  "garbage collection frequency",
 			EnvVar: "GC_FREQ",
 		},
 		cli.DurationFlag{
 			Name:   "sessionValidity",
-			Value:  time.Hour,
+			Value:  24 * time.Hour,
 			Usage:  "the default duration of a created session",
 			EnvVar: "SESSION_VALIDITY",
 		},

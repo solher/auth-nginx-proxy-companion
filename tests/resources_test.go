@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"testing"
 
-	"git.wid.la/co-net/auth-server/app"
-	"git.wid.la/co-net/auth-server/models"
-	"git.wid.la/co-net/auth-server/utils"
+	"github.com/solher/auth-nginx-proxy-companion/app"
+	"github.com/solher/auth-nginx-proxy-companion/models"
+	"github.com/solher/auth-nginx-proxy-companion/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

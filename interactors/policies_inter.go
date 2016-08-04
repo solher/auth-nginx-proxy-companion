@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"errors"
 
-	"git.wid.la/co-net/auth-server/errs"
-	"git.wid.la/co-net/auth-server/models"
+	"github.com/solher/auth-nginx-proxy-companion/errs"
+	"github.com/solher/auth-nginx-proxy-companion/models"
 	"github.com/boltdb/bolt"
 	"github.com/solher/zest"
 )

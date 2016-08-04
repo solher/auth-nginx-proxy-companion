@@ -15,9 +15,9 @@
 // - application/json
 //
 // swagger:meta
-package main // import "git.wid.la/co-net/auth-server"
+package main // import "github.com/solher/auth-nginx-proxy-companion"
 
-import "git.wid.la/co-net/auth-server/app"
+import "github.com/solher/auth-nginx-proxy-companion/app"
 
 func main() {
 	app.Run(nil)

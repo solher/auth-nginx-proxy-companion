@@ -22,7 +22,7 @@ WORKDIR /
 
 ENV CONFIG=/app/config.yml
 ENV SWAGGER_LOCATION=/app/swagger.json
-ENV DB_LOCATION=/var/lib/auth-nginx-proxy-companion/
-ENV GC_LOCATION=/var/lib/auth-nginx-proxy-companion/
+ENV DB_LOCATION=/var/lib/auth-nginx-proxy-companion/data.db
+ENV GC_LOCATION=/var/lib/auth-nginx-proxy-companion/archived.db
 EXPOSE 3000
 ENTRYPOINT ["auth-nginx-proxy-companion"]

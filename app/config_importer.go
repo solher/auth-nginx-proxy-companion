@@ -2,7 +2,6 @@ package app
 
 import (
 	"encoding/json"
-	"errors"
 	"io/ioutil"
 	"strings"
 
@@ -68,27 +67,27 @@ func (ci *ConfigImporter) Import(path string) error {
 		return err
 	}
 
-	if config.Resources == nil || config.Policies == nil {
-		return errors.New("Parsing error: nil resources or policies")
-	}
+	if config.Resources != nil {
+		for _, resource := range config.Resources {
+			if err := ci.rv.ValidateCreation(&resource); err != nil {
+				return err
+			}
 
-	for _, resource := range config.Resources {
-		if err := ci.rv.ValidateCreation(&resource); err != nil {
-			return err
-		}
-
-		if _, err := ci.ri.Create(&resource); err != nil {
-			return err
+			if _, err := ci.ri.Create(&resource); err != nil {
+				return err
+			}
 		}
 	}
 
-	for _, policy := range config.Policies {
-		if err := ci.pv.ValidateCreation(&policy); err != nil {
-			return err
-		}
+	if config.Policies != nil {
+		for _, policy := range config.Policies {
+			if err := ci.pv.ValidateCreation(&policy); err != nil {
+				return err
+			}
 
-		if _, err := ci.pi.Create(&policy); err != nil {
-			return err
+			if _, err := ci.pi.Create(&policy); err != nil {
+				return err
+			}
 		}
 	}
 

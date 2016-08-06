@@ -10,7 +10,7 @@ WORKDIR $SRC_PATH
 
 RUN go get ./... \
 && go build -v \
-&& cp $APP_NAME /usr/bin \
+&& cp $APP_NAME /usr/local/bin \
 && apk del git \
 && rm -rf /go/*
 

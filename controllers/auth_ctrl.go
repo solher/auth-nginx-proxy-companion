@@ -51,11 +51,6 @@ func NewAuthCtrl(i AuthCtrlAuthInter, r JSONRenderer, g AuthOptionsGetter) *Auth
 //	401: UnauthorizedResponse
 //  500: InternalResponse
 func (c *AuthCtrl) AuthorizeToken(w http.ResponseWriter, r *http.Request) {
-	if c.g.GetGrantAll() {
-		c.r.JSON(w, http.StatusNoContent, nil)
-		return
-	}
-
 	token := c.accessToken(r)
 	requestURL := c.requestURL(r)
 
@@ -76,7 +71,7 @@ func (c *AuthCtrl) AuthorizeToken(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	if !authorized {
+	if !authorized && !c.g.GetGrantAll() {
 		c.r.JSONError(w, http.StatusForbidden, errs.API.Unauthorized, errors.New("session not found, expired or unauthorized access"))
 		return
 	}
